@@ -1,0 +1,68 @@
+{% extends 'shared/layout.html'%}
+
+{% block conteudo %}
+
+    {% if nome%}
+        <h1>bem-vindo {{nome}}</h1>
+    {% else %}
+    <h1>bem-vindo ao petisk</h1>
+    {% endif %}
+    <h2><a href="/pessoas">veja as pessoas cadastradas</a></h2>
+    <h2><strong>Cadastre-se para adoçao</strong></h2>
+
+    <form action="/" method="post">
+        
+       {% csrf_token %}
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required>
+
+
+        <label for="sobrenome">sobrenome:</label>
+        <input type="text" name="sobrenome" required >
+
+
+        <label for="data_nascimento">data_nascimento:</label>
+        <input type="date" name="data_nascimento" required>
+
+
+    
+        <label for="email">email:</label>
+        <input type="email" name="email" required>
+
+
+        <label for="str_cep">cep:</label>
+        <input type="text" name="str_cep" maxlength="8" required>
+
+
+        <label for="str_numero">numero:</label>
+        <input type="text" name="str_numero" required>
+
+
+        <label for="complemento">complemento:</label>
+        <input type="text" name="complemento">
+
+
+        <label for="genero">genero:</label>
+        <select name="genero" >
+            <option value="F">Feminino</option>
+            <option value="M">Masculino</option>
+            <option value="O">Outro</option>
+        </select>
+
+        <label for="telefone">telefone:</label>
+        <input type="text" name="telefone">
+
+
+        <label for="celular">celular:</label>
+        <input type="text" name="celular" required>
+
+        <label for="motivo">Motivo: </label>
+        <textarea name="motivo" cols="30" rows="10" required></textarea>
+
+        <input type="submit" value="Cadastrar">
+
+        
+    </form>
+
+
+{% endblock %}

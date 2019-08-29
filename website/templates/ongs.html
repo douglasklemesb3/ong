@@ -1,0 +1,43 @@
+{% extends 'shared/layout.html'%}
+
+{% block conteudo %}
+{% if nome%}
+<h1>bem-vindo {{nome}}</h1>
+{% else %}
+<h1>bem-vindo ao petisk</h1>
+{% endif %}
+<h2><a href="/ongs">veja as ongs cadastradas</a></h2>
+<h2><strong>Cadastre sua ong</strong></h2>
+
+<form action="ong/" method="post">
+
+{% csrf_token %}
+<label for="nome_responsavel">nome_responsavel</label>
+<input type="text" name="nome_responsavel" required>
+
+
+<label for="nome_ong">nome ong:</label>
+<input type="text" name="nome_ong" required >
+
+
+<label for="str_cep">str_cep:</label>
+<input type="text" name="str_cep" required>
+
+
+<label for="telefone">telefone:</label>
+<input type="text" name="telefone">
+
+
+<label for="horario_atendimento">horario_atendimento:</label>
+<input type="text" name="horario_atendimento" required>
+
+<label for="observacoes">observacoes: </label>
+<textarea name="observacoes" cols="30" rows="10" required></textarea>
+
+<input type="submit" value="Cadastrar">
+
+
+</form>
+
+
+{% endblock %}
